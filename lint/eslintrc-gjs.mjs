@@ -1,285 +1,361 @@
-import jsdoc from "eslint-plugin-jsdoc";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import jsdoc from 'eslint-plugin-jsdoc';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import js from '@eslint/js';
+import {FlatCompat} from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
     baseDirectory: __dirname,
     recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
+    allConfig: js.configs.all,
 });
 
-export default [...compat.extends("eslint:recommended"), {
-    plugins: {
-        jsdoc,
-    },
-
-    languageOptions: {
-        globals: {
-            ARGV: "readonly",
-            Debugger: "readonly",
-            GIRepositoryGType: "readonly",
-            globalThis: "readonly",
-            imports: "readonly",
-            Intl: "readonly",
-            log: "readonly",
-            logError: "readonly",
-            print: "readonly",
-            printerr: "readonly",
-            window: "readonly",
-            TextEncoder: "readonly",
-            TextDecoder: "readonly",
-            console: "readonly",
-            setTimeout: "readonly",
-            setInterval: "readonly",
-            clearTimeout: "readonly",
-            clearInterval: "readonly",
+export default [
+    ...compat.extends('eslint:recommended'),
+    {
+        plugins: {
+            jsdoc,
         },
 
-        ecmaVersion: 2022,
-        sourceType: "script",
-    },
+        languageOptions: {
+            globals: {
+                ARGV: 'readonly',
+                Debugger: 'readonly',
+                GIRepositoryGType: 'readonly',
+                globalThis: 'readonly',
+                imports: 'readonly',
+                Intl: 'readonly',
+                log: 'readonly',
+                logError: 'readonly',
+                print: 'readonly',
+                printerr: 'readonly',
+                window: 'readonly',
+                TextEncoder: 'readonly',
+                TextDecoder: 'readonly',
+                console: 'readonly',
+                setTimeout: 'readonly',
+                setInterval: 'readonly',
+                clearTimeout: 'readonly',
+                clearInterval: 'readonly',
+            },
 
-    settings: {
-        jsdoc: {
-            mode: "typescript",
+            ecmaVersion: 2022,
+            sourceType: 'script',
         },
-    },
 
-    rules: {
-        "array-bracket-newline": ["error", "consistent"],
-        "array-bracket-spacing": ["error", "never"],
-        "array-callback-return": "error",
-        "arrow-parens": ["error", "as-needed"],
-        "arrow-spacing": "error",
-        "block-scoped-var": "error",
-        "block-spacing": "error",
-        "brace-style": "error",
+        settings: {
+            jsdoc: {
+                mode: 'typescript',
+            },
+        },
 
-        "comma-dangle": ["error", {
-            arrays: "always-multiline",
-            objects: "always-multiline",
-            functions: "never",
-        }],
+        rules: {
+            'array-bracket-newline': ['error', 'consistent'],
+            'array-bracket-spacing': ['error', 'never'],
+            'array-callback-return': 'error',
+            'arrow-parens': ['error', 'as-needed'],
+            'arrow-spacing': 'error',
+            'block-scoped-var': 'error',
+            'block-spacing': 'error',
+            'brace-style': 'error',
 
-        "comma-spacing": ["error", {
-            before: false,
-            after: true,
-        }],
-
-        "comma-style": ["error", "last"],
-        "computed-property-spacing": "error",
-        curly: ["error", "multi-or-nest", "consistent"],
-        "dot-location": ["error", "property"],
-        "eol-last": "error",
-        eqeqeq: "error",
-        "func-call-spacing": "error",
-        "func-name-matching": "error",
-
-        "func-style": ["error", "declaration", {
-            allowArrowFunctions: true,
-        }],
-
-        indent: ["error", 4, {
-            ignoredNodes: [
-                "CallExpression[callee.object.name=GObject][callee.property.name=registerClass] > ClassExpression:first-child",
+            'comma-dangle': [
+                'error',
+                {
+                    arrays: 'always-multiline',
+                    objects: 'always-multiline',
+                    functions: 'never',
+                },
             ],
 
-            MemberExpression: "off",
-        }],
+            'comma-spacing': [
+                'error',
+                {
+                    before: false,
+                    after: true,
+                },
+            ],
 
-        "jsdoc/check-alignment": "error",
-        "jsdoc/check-param-names": "error",
-        "jsdoc/check-tag-names": "error",
-        "jsdoc/check-types": "error",
-        "jsdoc/implements-on-classes": "error",
+            'comma-style': ['error', 'last'],
+            'computed-property-spacing': 'error',
+            curly: ['error', 'multi-or-nest', 'consistent'],
+            'dot-location': ['error', 'property'],
+            'eol-last': 'error',
+            eqeqeq: 'error',
+            'func-call-spacing': 'error',
+            'func-name-matching': 'error',
 
-        "jsdoc/tag-lines": ["error", "any", {
-            startLines: 1,
-        }],
+            'func-style': [
+                'error',
+                'declaration',
+                {
+                    allowArrowFunctions: true,
+                },
+            ],
 
-        "jsdoc/require-jsdoc": "error",
-        "jsdoc/require-param": "error",
-        "jsdoc/require-param-description": "error",
-        "jsdoc/require-param-name": "error",
-        "jsdoc/require-param-type": "error",
+            indent: [
+                'error',
+                4,
+                {
+                    ignoredNodes: [
+                        'CallExpression[callee.object.name=GObject][callee.property.name=registerClass] > ClassExpression:first-child',
+                    ],
 
-        "key-spacing": ["error", {
-            beforeColon: false,
-            afterColon: true,
-        }],
+                    MemberExpression: 'off',
+                },
+            ],
 
-        "keyword-spacing": ["error", {
-            before: true,
-            after: true,
-        }],
+            'jsdoc/check-alignment': 'error',
+            'jsdoc/check-param-names': 'error',
+            'jsdoc/check-tag-names': 'error',
+            'jsdoc/check-types': 'error',
+            'jsdoc/implements-on-classes': 'error',
 
-        "linebreak-style": ["error", "unix"],
+            'jsdoc/tag-lines': [
+                'error',
+                'any',
+                {
+                    startLines: 1,
+                },
+            ],
 
-        "lines-between-class-members": ["error", "always", {
-            exceptAfterSingleLine: true,
-        }],
+            'jsdoc/require-jsdoc': 'error',
+            'jsdoc/require-param': 'error',
+            'jsdoc/require-param-description': 'error',
+            'jsdoc/require-param-name': 'error',
+            'jsdoc/require-param-type': 'error',
 
-        "max-nested-callbacks": "error",
-        "max-statements-per-line": "error",
-        "new-parens": "error",
-        "no-array-constructor": "error",
-        "no-await-in-loop": "error",
-        "no-caller": "error",
+            'key-spacing': [
+                'error',
+                {
+                    beforeColon: false,
+                    afterColon: true,
+                },
+            ],
 
-        "no-constant-condition": ["error", {
-            checkLoops: false,
-        }],
+            'keyword-spacing': [
+                'error',
+                {
+                    before: true,
+                    after: true,
+                },
+            ],
 
-        "no-div-regex": "error",
+            'linebreak-style': ['error', 'unix'],
 
-        "no-empty": ["error", {
-            allowEmptyCatch: true,
-        }],
+            'lines-between-class-members': [
+                'error',
+                'always',
+                {
+                    exceptAfterSingleLine: true,
+                },
+            ],
 
-        "no-extra-bind": "error",
+            'max-nested-callbacks': 'error',
+            'max-statements-per-line': 'error',
+            'new-parens': 'error',
+            'no-array-constructor': 'error',
+            'no-await-in-loop': 'error',
+            'no-caller': 'error',
 
-        "no-extra-parens": ["error", "all", {
-            conditionalAssign: false,
-            nestedBinaryExpressions: false,
-            returnAssign: false,
-        }],
+            'no-constant-condition': [
+                'error',
+                {
+                    checkLoops: false,
+                },
+            ],
 
-        "no-implicit-coercion": ["error", {
-            allow: ["!!"],
-        }],
+            'no-div-regex': 'error',
 
-        "no-invalid-this": "error",
-        "no-iterator": "error",
-        "no-label-var": "error",
-        "no-lonely-if": "error",
-        "no-loop-func": "error",
-        "no-nested-ternary": "error",
-        "no-new-object": "error",
-        "no-new-wrappers": "error",
-        "no-octal-escape": "error",
-        "no-proto": "error",
-        "no-prototype-builtins": "off",
-        "no-restricted-globals": ["error", "window"],
+            'no-empty': [
+                'error',
+                {
+                    allowEmptyCatch: true,
+                },
+            ],
 
-        "no-restricted-properties": ["error", {
-            object: "imports",
-            property: "format",
-            message: "Use template strings",
-        }, {
-            object: "pkg",
-            property: "initFormat",
-            message: "Use template strings",
-        }, {
-            object: "Lang",
-            property: "copyProperties",
-            message: "Use Object.assign()",
-        }, {
-            object: "Lang",
-            property: "bind",
-            message: "Use arrow notation or Function.prototype.bind()",
-        }, {
-            object: "Lang",
-            property: "Class",
-            message: "Use ES6 classes",
-        }],
+            'no-extra-bind': 'error',
 
-        "no-restricted-syntax": ["error", {
-            selector: "MethodDefinition[key.name=\"_init\"] > FunctionExpression[params.length=1] > BlockStatement[body.length=1] CallExpression[arguments.length=1][callee.object.type=\"Super\"][callee.property.name=\"_init\"] > Identifier:first-child",
-            message: "_init() that only calls super._init() is unnecessary",
-        }, {
-            selector: "MethodDefinition[key.name=\"_init\"] > FunctionExpression[params.length=0] > BlockStatement[body.length=1] CallExpression[arguments.length=0][callee.object.type=\"Super\"][callee.property.name=\"_init\"]",
-            message: "_init() that only calls super._init() is unnecessary",
-        }, {
-            selector: "BinaryExpression[operator=\"instanceof\"][right.name=\"Array\"]",
-            message: "Use Array.isArray()",
-        }],
+            'no-extra-parens': [
+                'error',
+                'all',
+                {
+                    conditionalAssign: false,
+                    nestedBinaryExpressions: false,
+                    returnAssign: false,
+                },
+            ],
 
-        "no-return-assign": "error",
-        "no-return-await": "error",
-        "no-self-compare": "error",
-        "no-shadow": "error",
-        "no-shadow-restricted-names": "error",
-        "no-spaced-func": "error",
-        "no-tabs": "error",
-        "no-template-curly-in-string": "error",
-        "no-throw-literal": "error",
-        "no-trailing-spaces": "error",
-        "no-undef-init": "error",
-        "no-unneeded-ternary": "error",
-        "no-unused-expressions": "error",
+            'no-implicit-coercion': [
+                'error',
+                {
+                    allow: ['!!'],
+                },
+            ],
 
-        "no-unused-vars": ["error", {
-            varsIgnorePattern: "(^unused|_$)",
-            argsIgnorePattern: "^(unused|_)",
-        }],
+            'no-invalid-this': 'error',
+            'no-iterator': 'error',
+            'no-label-var': 'error',
+            'no-lonely-if': 'error',
+            'no-loop-func': 'error',
+            'no-nested-ternary': 'error',
+            'no-new-object': 'error',
+            'no-new-wrappers': 'error',
+            'no-octal-escape': 'error',
+            'no-proto': 'error',
+            'no-prototype-builtins': 'off',
+            'no-restricted-globals': ['error', 'window'],
 
-        "no-useless-call": "error",
-        "no-useless-computed-key": "error",
-        "no-useless-concat": "error",
-        "no-useless-constructor": "error",
-        "no-useless-rename": "error",
-        "no-useless-return": "error",
-        "no-whitespace-before-property": "error",
-        "no-with": "error",
-        "nonblock-statement-body-position": ["error", "below"],
+            'no-restricted-properties': [
+                'error',
+                {
+                    object: 'imports',
+                    property: 'format',
+                    message: 'Use template strings',
+                },
+                {
+                    object: 'pkg',
+                    property: 'initFormat',
+                    message: 'Use template strings',
+                },
+                {
+                    object: 'Lang',
+                    property: 'copyProperties',
+                    message: 'Use Object.assign()',
+                },
+                {
+                    object: 'Lang',
+                    property: 'bind',
+                    message: 'Use arrow notation or Function.prototype.bind()',
+                },
+                {
+                    object: 'Lang',
+                    property: 'Class',
+                    message: 'Use ES6 classes',
+                },
+            ],
 
-        "object-curly-newline": ["error", {
-            consistent: true,
-            multiline: true,
-        }],
+            'no-restricted-syntax': [
+                'error',
+                {
+                    selector:
+                        'MethodDefinition[key.name="_init"] > FunctionExpression[params.length=1] > BlockStatement[body.length=1] CallExpression[arguments.length=1][callee.object.type="Super"][callee.property.name="_init"] > Identifier:first-child',
+                    message: '_init() that only calls super._init() is unnecessary',
+                },
+                {
+                    selector:
+                        'MethodDefinition[key.name="_init"] > FunctionExpression[params.length=0] > BlockStatement[body.length=1] CallExpression[arguments.length=0][callee.object.type="Super"][callee.property.name="_init"]',
+                    message: '_init() that only calls super._init() is unnecessary',
+                },
+                {
+                    selector: 'BinaryExpression[operator="instanceof"][right.name="Array"]',
+                    message: 'Use Array.isArray()',
+                },
+            ],
 
-        "object-curly-spacing": "error",
-        "object-shorthand": "error",
-        "operator-assignment": "error",
-        "operator-linebreak": "error",
-        "padded-blocks": ["error", "never"],
-        "prefer-numeric-literals": "error",
-        "prefer-promise-reject-errors": "error",
-        "prefer-rest-params": "error",
-        "prefer-spread": "error",
-        "prefer-template": "error",
+            'no-return-assign': 'error',
+            'no-return-await': 'error',
+            'no-self-compare': 'error',
+            'no-shadow': 'error',
+            'no-shadow-restricted-names': 'error',
+            'no-spaced-func': 'error',
+            'no-tabs': 'error',
+            'no-template-curly-in-string': 'error',
+            'no-throw-literal': 'error',
+            'no-trailing-spaces': 'error',
+            'no-undef-init': 'error',
+            'no-unneeded-ternary': 'error',
+            'no-unused-expressions': 'error',
 
-        quotes: ["error", "single", {
-            avoidEscape: true,
-        }],
+            'no-unused-vars': [
+                'error',
+                {
+                    varsIgnorePattern: '(^unused|_$)',
+                    argsIgnorePattern: '^(unused|_)',
+                },
+            ],
 
-        "require-await": "error",
-        "rest-spread-spacing": "error",
-        semi: ["error", "always"],
+            'no-useless-call': 'error',
+            'no-useless-computed-key': 'error',
+            'no-useless-concat': 'error',
+            'no-useless-constructor': 'error',
+            'no-useless-rename': 'error',
+            'no-useless-return': 'error',
+            'no-whitespace-before-property': 'error',
+            'no-with': 'error',
 
-        "semi-spacing": ["error", {
-            before: false,
-            after: true,
-        }],
+            'object-curly-newline': [
+                'error',
+                {
+                    consistent: true,
+                    multiline: true,
+                },
+            ],
 
-        "semi-style": "error",
-        "space-before-blocks": "error",
+            'object-curly-spacing': 'error',
+            'object-shorthand': 'error',
+            'operator-assignment': 'error',
+            'operator-linebreak': 'error',
+            'padded-blocks': ['error', 'never'],
+            'prefer-numeric-literals': 'error',
+            'prefer-promise-reject-errors': 'error',
+            'prefer-rest-params': 'error',
+            'prefer-spread': 'error',
+            'prefer-template': 'error',
 
-        "space-before-function-paren": ["error", {
-            named: "never",
-            anonymous: "always",
-            asyncArrow: "always",
-        }],
+            quotes: [
+                'error',
+                'single',
+                {
+                    avoidEscape: true,
+                },
+            ],
 
-        "space-in-parens": "error",
+            'require-await': 'error',
+            'rest-spread-spacing': 'error',
+            semi: ['error', 'always'],
 
-        "space-infix-ops": ["error", {
-            int32Hint: false,
-        }],
+            'semi-spacing': [
+                'error',
+                {
+                    before: false,
+                    after: true,
+                },
+            ],
 
-        "space-unary-ops": "error",
-        "spaced-comment": "error",
-        "switch-colon-spacing": "error",
-        "symbol-description": "error",
-        "template-curly-spacing": "error",
-        "template-tag-spacing": "error",
-        "unicode-bom": "error",
-        "wrap-iife": ["error", "inside"],
-        "yield-star-spacing": "error",
-        yoda: "error",
+            'semi-style': 'error',
+            'space-before-blocks': 'error',
+
+            'space-before-function-paren': [
+                'error',
+                {
+                    named: 'never',
+                    anonymous: 'always',
+                    asyncArrow: 'always',
+                },
+            ],
+
+            'space-in-parens': 'error',
+
+            'space-infix-ops': [
+                'error',
+                {
+                    int32Hint: false,
+                },
+            ],
+
+            'space-unary-ops': 'error',
+            'spaced-comment': 'error',
+            'switch-colon-spacing': 'error',
+            'symbol-description': 'error',
+            'template-curly-spacing': 'error',
+            'template-tag-spacing': 'error',
+            'unicode-bom': 'error',
+            'wrap-iife': ['error', 'inside'],
+            'yield-star-spacing': 'error',
+            yoda: 'error',
+        },
     },
-}];
+];
