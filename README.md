@@ -59,24 +59,46 @@ You can run a nested session of GNOME Shell to test the extension out with:
 make run
 ```
 
-Before submitting a pull request, make sure you install and run the linter with:
+Before submitting a pull request, make sure you install and run both the formatter and the linter with:
 
 ```bash
-make lint-install # install the linter
-make lint         # run the linter
+npm install # install dependencies
+npm run format-lint # run the formater and the linter
 ```
 
-You can also have the linter attempt to fix the errors it found with:
+You can also have them attempt to fix the errors found with:
 
 ```bash
-make lint-fix
+npm run format-lint:fix
+```
+
+To run them individually you can use:
+
+##### Formatter
+
+```bash
+npm run format
+```
+
+```bash
+npm run format:fix
+```
+
+##### Linter
+
+```bash
+npm run lint
+```
+
+```bash
+npm run lint:fix
 ```
 
 ## Attribution
 
 ### Code
 
-- Codebase: forked from ["Show Application View When Workspace Empty"](https://github.com/fawtytoo/GnomeShellExtensions/tree/main/show_applications_instead_of_overview%40fawtytoo%20(3.38%E2%80%9343)) by fawtytoo
+- Codebase: forked from ["Show Application View When Workspace Empty"](<https://github.com/fawtytoo/GnomeShellExtensions/tree/main/show_applications_instead_of_overview%40fawtytoo%20(3.38%E2%80%9343)>) by fawtytoo
 
 ### Assets
 

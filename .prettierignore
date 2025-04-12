@@ -1,0 +1,7 @@
+*.zip
+node_modules/
+docs/
+.vscode/
+
+# gettext backup files
+*~

@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format-lint": "npm run format && npm run lint",
+    "format-lint:fix": "npm run format:fix && npm run lint:fix"
+  },
+  "devDependencies": {
+    "eslint": "^9.19.0",
+    "eslint-plugin-jsdoc": "^50.6.9",
+    "prettier": "^3.5.3"
+  }
+}

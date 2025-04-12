@@ -3,7 +3,7 @@ EXTENSION_ARCHIVE = "$(EXTENSION_DIR).shell-extension.zip"
 
 all: build install
 
-.PHONY: build install run clean lint lint-fix lint-install
+.PHONY: build install run clean
 
 build:
 	gnome-extensions pack --force $(EXTENSION_DIR)
@@ -20,12 +20,3 @@ run-multimonitor:
 clean:
 	rm -f $(EXTENSION_ARCHIVE)
 	rm -rf docs/
-
-lint:
-	npx eslint "**/*.js" --no-warn-ignored
-
-lint-fix:
-	npx eslint "**/*.js" --no-warn-ignored --fix
-
-lint-install:
-	npm install --user eslint@9.19.0 eslint-plugin-jsdoc --save-dev
