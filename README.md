@@ -59,39 +59,56 @@ You can run a nested session of GNOME Shell to test the extension out with:
 make run
 ```
 
-Before submitting a pull request, make sure you install and run both the formatter and the linter with:
+### Code Formatting and Linting
+
+Before submitting a pull request, ensure that you install and run both the formatter and the linter by following these steps:
+
+1. Install the required dependencies:
 
 ```bash
-npm install # install dependencies
-npm run format-lint # run the formater and the linter
+npm install
 ```
 
-You can also have them attempt to fix the errors found with:
+2. Run the formatter and linter:
+
+```bash
+npm run format-lint
+```
+
+3. To automatically fix any detected issues, use:
 
 ```bash
 npm run format-lint:fix
 ```
 
-To run them individually you can use:
+Alternatively, you can run the formatter and linter individually:
 
-##### Formatter
+#### Formatter
 
-```bash
-npm run format
-```
+- Check formatting:
 
-```bash
-npm run format:fix
-```
+  ```bash
+  npm run format
+  ```
 
-##### Linter
+- Fix formatting issues:
+  ```bash
+  npm run format:fix
+  ```
 
-```bash
-npm run lint
-```
+#### Linter
 
-```bash
-npm run lint:fix
+- Check for linting issues:
+
+  ```bash
+  npm run lint
+  ```
+
+- Fix linting issues:
+  ```bash
+  npm run lint:fix
+  ```
+
 ```
 
 ## Attribution
@@ -119,3 +136,4 @@ This project would not exist if it weren't for "Show Application View When Works
 ## License
 
 This project is licensed under the terms of the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt).
+```
