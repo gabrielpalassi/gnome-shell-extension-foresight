@@ -109,8 +109,6 @@ Alternatively, you can run the formatter and linter individually:
   npm run lint:fix
   ```
 
-```
-
 ## Attribution
 
 ### Code
